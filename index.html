@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Library buat notification alert -->
+    <!-- Cek info lengkap disini : https://xsgames.co/xsalert/#installation -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frankeno/xsalert@main/src/themes/light-theme.css">
+    <script src="https://cdn.jsdelivr.net/gh/frankeno/xsalert@main/src/xsalert.js"></script>
+    <!-- Jquery -->
+    <script src="lol.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Khodam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Check Khodam</h1>
+        <input type="text" id="inputan" placeholder="Masukkan Nama">
+        <button onclick="cekkhodam()"><b>Terawang</b></button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function cekkhodam() {
+            const name = document.getElementById('inputan').value.trim();
+            if (name === "") {
+                XSAlert({
+                    title: 'Error',
+                    message: 'Nama tidak boleh kosong',
+                    icon: 'error',
+                    hideCancelButton: true
+                })
+                return;
+            }
+
+            const khodams = [
+                "Air Cucian Beras",
+                "Api Menyala",
+                "Angin Sejuk",
+                "Batu Karang",
+                "Cahaya Bulan",
+                "Daun Rimbun",
+                "Embun Pagi",
+                "Gurun Pasir",
+                "Hujan Deras",
+                "Pelangi Indah",
+                "Sungai Mengalir",
+                "Tanah Subur",
+                "Sepeda Ontel",
+                "Titid Terbang",
+                "Layangan Putus",
+                "Baju Robek"
+                // Tambahin aja khodam lainnya disini bang.
+            ];
+
+            const acak = Math.floor(Math.random() * khodams.length);
+            const khodam = khodams[acak];
+            const hasil = `Nama: ${name}\nKhodam: ${khodam}`;
+
+            document.getElementById('result').innerText = hasil;
+        }
+    </script>
+</body>
+
+</html>
